@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "72bb2d0c81bbf7840e49f06664a98893",
-    "content-hash": "976f4219fc6ffde8ac1493326b4b23b6",
+    "hash": "3dd2366cc1742e0d387105cf0cc35a6b",
+    "content-hash": "93280d8ddd262a1e8a60df7d08d04e7c",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -935,16 +935,16 @@
         },
         {
             "name": "gedmo/doctrine-extensions",
-            "version": "v2.4.31",
+            "version": "v2.4.32",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Atlantic18/DoctrineExtensions.git",
-                "reference": "79cd1d49898a21ede9a5dfad41c021abd9a14339"
+                "reference": "a268224b312353be62d72e6390a286f4166a7542"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/79cd1d49898a21ede9a5dfad41c021abd9a14339",
-                "reference": "79cd1d49898a21ede9a5dfad41c021abd9a14339",
+                "url": "https://api.github.com/repos/Atlantic18/DoctrineExtensions/zipball/a268224b312353be62d72e6390a286f4166a7542",
+                "reference": "a268224b312353be62d72e6390a286f4166a7542",
                 "shasum": ""
             },
             "require": {
@@ -957,7 +957,7 @@
                 "doctrine/mongodb-odm": ">=1.0.2",
                 "doctrine/orm": ">=2.5.0",
                 "phpunit/phpunit": "*",
-                "symfony/yaml": "~2.6|~3.0"
+                "symfony/yaml": "~2.6|~3.0|~4.0"
             },
             "suggest": {
                 "doctrine/mongodb-odm": "to use the extensions with the MongoDB ODM",
@@ -1009,7 +1009,7 @@
                 "tree",
                 "uploadable"
             ],
-            "time": "2017-10-12 06:26:21"
+            "time": "2017-12-28 14:36:10"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -2449,12 +2449,12 @@
             "time": "2017-09-27 18:06:46"
         },
         {
-            "name": "valou-ssd/issue-bundle",
+            "name": "valouleloup/issue-bundle",
             "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "src/Valouleloup/IssueBundle",
-                "reference": "812b44f4f7407ff9a4b76974da5296aa2e98e9b1",
+                "reference": "d66069147e867d637e31b859d04a6edfa0c515d5",
                 "shasum": null
             },
             "require": {
@@ -2604,7 +2604,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "valou-ssd/issue-bundle": 20
+        "valouleloup/issue-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
