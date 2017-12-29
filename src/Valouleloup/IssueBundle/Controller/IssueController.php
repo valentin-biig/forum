@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Valouleloup\IssueBundle\Entity\Issue;
 use Valouleloup\IssueBundle\Entity\Post;
 use Valouleloup\IssueBundle\Entity\Tag;
+use Valouleloup\IssueBundle\Entity\Theme;
 use Valouleloup\IssueBundle\Form\IssueType;
 use Valouleloup\IssueBundle\Form\PostType;
 
@@ -85,6 +86,20 @@ class IssueController extends Controller
     public function listTagAction(Tag $tag)
     {
         $issues = $tag->getIssues();
+
+        return $this->render('@ValouleloupIssue/Issue/list.html.twig', [
+            'issues' => $issues,
+        ]);
+    }
+
+    /**
+     * @param Theme $theme
+     *
+     * @return Response
+     */
+    public function listThemeAction(Theme $theme)
+    {
+        $issues = $theme->getIssues();
 
         return $this->render('@ValouleloupIssue/Issue/list.html.twig', [
             'issues' => $issues,
