@@ -24,7 +24,7 @@
                             <p>#{{ issue.id }} created at {{ issue.createdAt|date('d/m/Y H:i:s') }}</p>
                         </div>
                         <div class="col-sm-2 infos info-comments text-right">
-                            {{ issue.nbPosts }} comments
+                            <a href="{{ path('show_issue', {'id': issue.id}) }}"><span class="glyphicon glyphicon-comment"></span> {{ issue.nbPosts }} comments</a>
                         </div>
                     </div>
                 {% endfor %}

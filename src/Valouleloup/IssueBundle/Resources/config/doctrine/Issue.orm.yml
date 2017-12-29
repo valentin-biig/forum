@@ -1,6 +1,7 @@
 Valouleloup\IssueBundle\Entity\Issue:
     type: entity
     table: valou_issue
+    repositoryClass: Valouleloup\IssueBundle\Repository\IssueRepository
     id:
         id:
             type: integer

@@ -70,7 +70,7 @@ class IssueController extends Controller
     public function listAction()
     {
         $repo = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
-        $issues = $repo->findAll();
+        $issues = $repo->findAllMostRecent();
 
         return $this->render('@ValouleloupIssue/Issue/list.html.twig', [
             'issues' => $issues,
