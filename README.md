@@ -26,9 +26,21 @@ The goal of this library is to test the bundle [**valouleloup/issue-bundle**][90
  
  #### Issue bundle endpoint
  
+ First register one user here :
+ 
+ [http://localhost:8091/register][92]
+ 
+ Then login :
+ 
+ [http://localhost:8091/login][93]
+ 
+ And go to the main page :
+ 
  [http://localhost:8091/issue-bundle/themes/][91]
  
 
 [90]: https://github.com/Valouleloup/IssueBundle
 [91]: http://localhost:8091/issue-bundle/themes/
+[92]: http://localhost:8091/register
+[93]: http://localhost:8091/login
 
