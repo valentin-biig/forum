@@ -9,6 +9,8 @@ Valouleloup\IssueBundle\Entity\Issue:
     fields:
         label:
             type: text
+        body:
+            type: text
         state:
             type: integer
             nullable: true

@@ -13,6 +13,21 @@
     <hr>
 
     <div class="row">
+        <div class="col-sm-1 post-left">
+            <img src="{{ asset('33849138.png') }}">
+        </div>
+
+        <div class="panel panel-default col-sm-11 list-posts">
+
+            <div class="panel-heading">
+                {{ issue.author.username }} commented at {{ issue.createdAt|date('d/m/Y H:i:s') }}
+            </div>
+            <div class="panel-body">
+                <p>{{ issue.body | raw }}</p>
+            </div>
+
+        </div>
+
     {% for post in issue.posts %}
         <div class="col-sm-1 post-left">
             <img src="{{ asset('33849138.png') }}">

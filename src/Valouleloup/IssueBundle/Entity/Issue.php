@@ -19,6 +19,11 @@ class Issue
     private $label;
 
     /**
+     * @var string
+     */
+    private $body;
+
+    /**
      * @var Collection
      */
     private $posts;
@@ -208,6 +213,22 @@ class Issue
     public function setTheme($theme)
     {
         $this->theme = $theme;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    /**
+     * @param string $body
+     */
+    public function setBody($body)
+    {
+        $this->body = $body;
     }
 
 }

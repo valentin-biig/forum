@@ -34,6 +34,8 @@ class IssueController extends Controller
             $post->setBody($mark->convertToHtml($post->getBody()));
         }
 
+        $issue->setBody($mark->convertToHtml($issue->getBody()));
+
         return $this->render('@ValouleloupIssue/Issue/show.html.twig', [
             'issue' => $issue,
             'form' => $form->createView(),

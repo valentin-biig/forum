@@ -6,6 +6,23 @@ header{
     color:#bbb;
     padding:10px;
 }
+form label{
+    margin-right:10px;
+}
+form>div{
+    margin:10px 0;
+}
+input[type=text]{
+    width:400px;
+    border-radius:3px;
+    border:1px solid #ddd;
+    background-color:#FCFCFC;
+}
+textarea{
+    border-radius:3px;
+    border:1px solid #ddd;
+    background-color:#FCFCFC;
+}
 .top-body{
     background:#fafbfc;
     border-bottom: 1px solid #e1e4e8;
