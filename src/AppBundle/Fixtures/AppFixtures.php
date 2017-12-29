@@ -68,8 +68,8 @@ class AppFixtures extends Fixture
         $manager->persist($issue1);
 
         $issue2 = new Issue();
-        $issue2->setLabel('My issue problem');
-        $issue2->setBody('jn rjnjfnrlifbnlrbfrb bf');
+        $issue2->setLabel('My other issue problem');
+        $issue2->setBody('jn rjnjfnrlifbnlrbfrb bf <br> ```toto blabla``` <br> beirtbb erbt ierbt eirbteirt ierbtiebrt');
         $issue2->setTags($tag1);
         $issue2->setTags($tag3);
         $issue2->setTheme($theme2);
@@ -77,15 +77,21 @@ class AppFixtures extends Fixture
         $manager->persist($issue2);
 
         // Posts
-        $post1 = new Post();
-        $post1->setBody('abc');
-        $post1->setAuthor($user1);
-        $manager->persist($post1);
+        for ($i = 0; $i < 5; $i++) {
+            $post = new Post();
+            $post->setBody('<h2>My title</h2> bggb righbe iebgihebgihbe <br> ` yolooooo yolo `');
+            $post->setAuthor($user1);
+            $post->setIssue($issue1);
+            $manager->persist($post);
+        }
 
-        $post2 = new Post();
-        $post2->setBody('abcde');
-        $post2->setAuthor($user1);
-        $manager->persist($post2);
+        for ($i = 0; $i < 5; $i++) {
+            $post = new Post();
+            $post->setBody('<h2>My title</h2> rjrfrh <br> bggb righbe iebgihebgihbe <br> ` yolooooo yolo `');
+            $post->setAuthor($user1);
+            $post->setIssue($issue2);
+            $manager->persist($post);
+        }
 
         $manager->flush();
     }
