@@ -2,6 +2,8 @@
 phpunit.xml
 var/*
 vendor/
+web/bundles/*
 .composer/*
 .bash_history
 .env
+.idea/*

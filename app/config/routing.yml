@@ -1,3 +1,15 @@
+valouleloup_issue:
+    resource: "@ValouleloupIssueBundle/Resources/config/routing.yml"
+    prefix:   /issue-bundle
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+login:
+    defaults: { _controller: "AppBundle:Security:login" }
+    path: "/login"
+
+register:
+    defaults: { _controller: "AppBundle:Security:register" }
+    path: "/register"
