@@ -77,17 +77,33 @@ class AppFixtures extends Fixture
         $manager->persist($issue2);
 
         // Posts
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 4; $i++) {
             $post = new Post();
-            $post->setBody('<h2>My title</h2> bggb righbe iebgihebgihbe <br> ` yolooooo yolo `');
+            $post->setBody('## blabla
+blo blo
+> blublu
+
+``` 
+rkjgberjgbkle bgk ergbe 
+kjz ejbiz ze fijbzef
+kmezbfm zbfozb fofezuobf ozbfou
+```');
             $post->setAuthor($user1);
             $post->setIssue($issue1);
             $manager->persist($post);
         }
 
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 6; $i++) {
             $post = new Post();
-            $post->setBody('<h2>My title</h2> rjrfrh <br> bggb righbe iebgihebgihbe <br> ` yolooooo yolo `');
+            $post->setBody('## blabla
+blo blo
+> blublu
+
+``` 
+rkjgberjgbkle bgk ergbe 
+kjz ejbiz ze fijbzef
+kmezbfm zbfozb fofezuobf ozbfou
+```');
             $post->setAuthor($user1);
             $post->setIssue($issue2);
             $manager->persist($post);

@@ -24,6 +24,10 @@ The goal of this library is to test the bundle [**valouleloup/issue-bundle**][90
  
  ` docker-compose exec php bash `
  
+ #### Fixtures
+  
+  ` bin/console do:fi:lo `
+ 
  #### Issue bundle endpoint
  
  First register one user here :
