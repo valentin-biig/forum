@@ -85,7 +85,8 @@ class IssueController extends Controller
      */
     public function listTagAction(Tag $tag)
     {
-        $issues = $tag->getIssues();
+        $repo = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
+        $issues = $repo->findByTag($tag);
 
         return $this->render('@ValouleloupIssue/Issue/list.html.twig', [
             'issues' => $issues,
@@ -99,7 +100,8 @@ class IssueController extends Controller
      */
     public function listThemeAction(Theme $theme)
     {
-        $issues = $theme->getIssues();
+        $repo = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
+        $issues = $repo->findByTheme($theme);
 
         return $this->render('@ValouleloupIssue/Issue/list.html.twig', [
             'issues' => $issues,
