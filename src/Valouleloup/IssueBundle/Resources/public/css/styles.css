@@ -23,6 +23,9 @@ textarea{
     border:1px solid #ddd;
     background-color:#FCFCFC;
 }
+.col-no-padding{
+    padding:0;
+}
 .top-body{
     background:#fafbfc;
     border-bottom: 1px solid #e1e4e8;
@@ -105,6 +108,12 @@ textarea{
 }
 .post-left img{
     max-width:60px;
+}
+.elastic-submit{
+    display:none;
+}
+.elastic-search-input{
+    padding:4px 10px;
 }
 footer{
     font-size:12px;

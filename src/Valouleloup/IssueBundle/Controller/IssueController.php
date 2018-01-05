@@ -10,6 +10,7 @@ use Valouleloup\IssueBundle\Entity\Issue;
 use Valouleloup\IssueBundle\Entity\Post;
 use Valouleloup\IssueBundle\Entity\Tag;
 use Valouleloup\IssueBundle\Entity\Theme;
+use Valouleloup\IssueBundle\Form\ElasticType;
 use Valouleloup\IssueBundle\Form\IssueType;
 use Valouleloup\IssueBundle\Form\PostType;
 
@@ -56,7 +57,7 @@ class IssueController extends Controller
             $em->persist($post);
             $em->flush();
 
-            $this->addFlash('success', 'flash.post.create');
+            $this->get('val_issue.component.elastic.post.manager')->indexPost($post);
 
             return $this->redirectToRoute('show_issue', ['id' => $issue->getId()]);
         }
@@ -75,9 +76,7 @@ class IssueController extends Controller
         $repo = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
         $issues = $repo->findAllMostRecent();
 
-        return $this->render('@ValouleloupIssue/Issue/list.html.twig', [
-            'issues' => $issues,
-        ]);
+        return $this->renderList($issues);
     }
 
     /**
@@ -90,9 +89,7 @@ class IssueController extends Controller
         $repo = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
         $issues = $repo->findByTag($tag);
 
-        return $this->render('@ValouleloupIssue/Issue/list.html.twig', [
-            'issues' => $issues,
-        ]);
+        return $this->renderList($issues);
     }
 
     /**
@@ -105,8 +102,57 @@ class IssueController extends Controller
         $repo = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
         $issues = $repo->findByTheme($theme);
 
+        return $this->renderList($issues);
+    }
+
+    /**
+     * @param $terms
+     *
+     * @return Response
+     */
+    public function listElasticAction($terms)
+    {
+        $repo = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
+
+        $postIds = $this->get('val_issue.component.elastic.post.manager')->getPosts($terms);
+
+        $issues = $repo->findByListId($postIds);
+
+        return $this->renderList($issues);
+    }
+
+    /**
+     * @return Response
+     */
+    public function listSearchAction(Request $request)
+    {
+        $form = $this->createForm(ElasticType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search = $form->get('search')->getData();
+
+            return $this->redirectToRoute('list_issue_elastic', ['terms' => $search]);
+        }
+
+        return $this->redirectToRoute('list_issue');
+    }
+
+    /**
+     * @param array $issues
+     *
+     * @return Response
+     */
+    private function renderList(array $issues)
+    {
+        $form = $this->createForm(ElasticType::class, null, [
+            'action' => $this->generateUrl('list_issue_search'),
+            'method' => 'POST',
+        ]);
+
         return $this->render('@ValouleloupIssue/Issue/list.html.twig', [
             'issues' => $issues,
+            'form' => $form->createView(),
         ]);
     }
 
@@ -148,6 +194,8 @@ class IssueController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($issue);
             $em->flush();
+
+            $this->get('val_issue.component.elastic.post.manager')->indexIssue($issue);
 
             $this->addFlash('success', 'flash.issue.create');
 

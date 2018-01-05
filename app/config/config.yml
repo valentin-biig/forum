@@ -67,3 +67,8 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+valouleloup_issue:
+    elastic:
+        hostname: 'elasticsearch'
+        port: 9200

@@ -49,4 +49,20 @@ class IssueRepository extends EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    /**
+     * @param array $ids
+     *
+     * @return array
+     */
+    public function findByListId(array $ids)
+    {
+        $qb = $this->createQueryBuilder('i')
+            ->where('i.id IN (:ids)')
+            ->setParameter('ids', $ids)
+            ->orderBy('i.updatedAt', 'DESC')
+        ;
+
+        return $qb->getQuery()->getResult();
+    }
 }

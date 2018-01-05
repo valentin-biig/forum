@@ -6,7 +6,14 @@
 
 {% block body %}
     <div class="row">
-       <a class="btn btn-success pull-right" href="{{ path('add_issue') }}">Add Issue</a>
+        <div class="col-sm-6 col-no-padding">
+            {{ form_start(form) }}
+            {{ form_end(form) }}
+            <button type="submit" class="elastic-submit">OK</button>
+        </div>
+        <div class="col-sm-6 col-no-padding">
+            <a class="btn btn-success pull-right" href="{{ path('add_issue') }}">Add Issue</a>
+        </div>
     </div>
 
     <div class="row">

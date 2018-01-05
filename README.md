@@ -5,10 +5,11 @@ The goal of this library is to test the bundle [**valouleloup/issue-bundle**][90
 
 ## Overview
  
- * Docker (nginx, php-fpm, mysql, phpmyadmin)
+ * Docker (nginx, php-fpm, mysql, phpmyadmin, elasticsearch)
  * Symfony 3.4
+ * Valouleloup/IssueBundle
 
- ## Install
+## Install
  
  Create a ` .env ` file with the configuration in ` .env.dist `
  
@@ -20,17 +21,23 @@ The goal of this library is to test the bundle [**valouleloup/issue-bundle**][90
  
  ` composer install `
  
- #### Container
+#### Container
  
  ` docker-compose exec php bash `
  
- #### Fixtures
+#### Fixtures
+  
+  ` bin/console do:sc:up --force `
   
   ` bin/console do:fi:lo `
+  
+#### Index posts in elasticsearch (for search)
+
+  ` bin/console issue:elastic:populate `
  
- #### Issue bundle endpoint
+#### Issue bundle endpoint
  
- First register one user here :
+ First, register one user here :
  
  [http://localhost:8091/register][92]
  
