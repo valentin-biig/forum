@@ -21,3 +21,8 @@ services:
         class: Valouleloup\IssueBundle\Component\Elasticsearch\Post\PostManager
         arguments:
             - '@val_issue.component.elastic.client'
+
+    val_issue.component.pagination.paginator:
+            class: Valouleloup\IssueBundle\Component\Pagination\Paginator
+            arguments:
+                - '@request_stack'

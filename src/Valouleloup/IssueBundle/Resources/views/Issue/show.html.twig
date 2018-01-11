@@ -1,5 +1,9 @@
 {% extends '@ValouleloupIssue/Issue/base_issue.html.twig' %}
 
+{% block current_top_navigation %}
+    <h4><a>{{ issue.theme.label }}</a> / <a><b>{{ issue.label }}</b></a></h4>
+{% endblock %}
+
 {% block body %}
     <div class="row">
         <h2>{{ issue.label }}</h2>

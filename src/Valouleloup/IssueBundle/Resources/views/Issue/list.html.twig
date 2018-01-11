@@ -40,3 +40,7 @@
         </div>
     </div>
 {% endblock %}
+
+{% block paginate %}
+    {{ paginate.navigation(issues) }}
+{% endblock %}

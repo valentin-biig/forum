@@ -21,14 +21,14 @@ list_issue:
     methods: [GET]
     options:
         expose: true
-    path: ""
+    path: "list"
 
 list_issue_search:
     defaults: { _controller: "ValouleloupIssueBundle:Issue:listSearch" }
     methods: [POST]
     options:
         expose: true
-    path: ""
+    path: "list"
 
 list_issue_tag:
     defaults: { _controller: "ValouleloupIssueBundle:Issue:listTag" }

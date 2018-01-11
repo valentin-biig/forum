@@ -53,6 +53,8 @@ class IssueController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $issue->setUpdatedAt(new \DateTime('now'));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($post);
             $em->flush();
@@ -139,16 +141,19 @@ class IssueController extends Controller
     }
 
     /**
-     * @param array $issues
+     * @param $issues
      *
      * @return Response
      */
-    private function renderList(array $issues)
+    private function renderList($issues)
     {
         $form = $this->createForm(ElasticType::class, null, [
             'action' => $this->generateUrl('list_issue_search'),
             'method' => 'POST',
         ]);
+
+        $paginator = $this->get('val_issue.component.pagination.paginator');
+        $issues    = $paginator->paginate($issues, 5);
 
         return $this->render('@ValouleloupIssue/Issue/list.html.twig', [
             'issues' => $issues,

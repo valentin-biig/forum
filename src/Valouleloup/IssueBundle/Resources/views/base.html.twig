@@ -1,3 +1,5 @@
+{% import '@ValouleloupIssue/paginate.html.twig' as paginate %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,7 +23,9 @@
         <!-- Top Body -->
         <div class="top-body">
             <div class="container">
-                <h4><a>Symfony</a> / <a><b>Symfony</b></a></h4>
+                {% block current_top_navigation %}
+                    <h4><a>Home</a></h4>
+                {% endblock %}
                 <ul class="nav nav-tabs" id="top-body">
                     {% block body_nav_themes %}<li><a href="{{ path('list_themes') }}">Themes</a></li>{% endblock %}
                     {% block body_nav_issues %}<li><a href="{{ path('list_issue') }}">Issues</a></li>{% endblock %}
@@ -34,6 +38,9 @@
         <!-- Body -->
         <div class="body container">
             {% block body %}
+            {% endblock %}
+
+            {% block paginate %}
             {% endblock %}
         </div>
 
