@@ -69,6 +69,8 @@ swiftmailer:
     spool: { type: memory }
 
 valouleloup_issue:
+    mattermost:
+        webhook: 'https://mattermost.biig.fr/hooks/hj7jq571yjygdqakyfuwy5koir'
     elastic:
         hostname: 'elasticsearch'
         port: 9200

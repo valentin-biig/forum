@@ -22,6 +22,11 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+                ->arrayNode('mattermost')
+                    ->children()
+                        ->scalarNode('webhook')->end()
+                    ->end()
+                ->end()
                 ->arrayNode('elastic')
                     ->children()
                         ->scalarNode('hostname')->end()

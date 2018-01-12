@@ -2,12 +2,12 @@
 
 namespace Valouleloup\IssueBundle\Controller;
 
-use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\Converter;
 use League\CommonMark\DocParser;
 use League\CommonMark\Environment;
 use League\CommonMark\HtmlRenderer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\EventDispatcher\GenericEvent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Valouleloup\IssueBundle\Entity\Issue;
@@ -17,6 +17,7 @@ use Valouleloup\IssueBundle\Entity\Theme;
 use Valouleloup\IssueBundle\Form\ElasticType;
 use Valouleloup\IssueBundle\Form\IssueType;
 use Valouleloup\IssueBundle\Form\PostType;
+use Valouleloup\IssueBundle\ValouleloupIssueEvents;
 use Webuni\CommonMark\TableExtension\TableExtension;
 
 class IssueController extends Controller
@@ -207,6 +208,9 @@ class IssueController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($issue);
             $em->flush();
+
+            $event = new GenericEvent($issue);
+            $this->get('event_dispatcher')->dispatch(ValouleloupIssueEvents::ISSUE_OPEN, $event);
 
             $this->get('val_issue.component.elastic.post.manager')->indexIssue($issue);
 

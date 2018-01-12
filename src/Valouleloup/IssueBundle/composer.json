@@ -10,7 +10,8 @@
         "league/commonmark": "^0.16.0",
         "gedmo/doctrine-extensions": "^2.4",
         "elasticsearch/elasticsearch": "^5.3",
-        "webuni/commonmark-table-extension": "^0.7.0"
+        "webuni/commonmark-table-extension": "^0.7.0",
+        "guzzlehttp/guzzle": "^6.3"
     },
     "authors": [
         {

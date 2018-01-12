@@ -23,6 +23,19 @@ services:
             - '@val_issue.component.elastic.client'
 
     val_issue.component.pagination.paginator:
-            class: Valouleloup\IssueBundle\Component\Pagination\Paginator
-            arguments:
-                - '@request_stack'
+        class: Valouleloup\IssueBundle\Component\Pagination\Paginator
+        arguments:
+            - '@request_stack'
+
+    val_issue.component.mattermost.notifier:
+        class: Valouleloup\IssueBundle\Component\MatterMost\Notifier
+        arguments:
+            - '@router'
+            - '%valouleloup_issue.mattermost.webhook%'
+
+    val_issue.event_listener.issue_listener:
+        class: Valouleloup\IssueBundle\EventListener\IssueListener
+        arguments:
+            - '@val_issue.component.mattermost.notifier'
+        tags:
+            - { name: kernel.event_subscriber }
