@@ -29,6 +29,9 @@ textarea{
 label{
     font-weight: 400;
 }
+.label{
+    font-weight:400;
+}
 .col-no-padding{
     padding:0 !important;
 }
