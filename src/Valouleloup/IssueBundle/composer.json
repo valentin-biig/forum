@@ -9,12 +9,13 @@
         "symfony/symfony": "3.4.*",
         "league/commonmark": "^0.16.0",
         "gedmo/doctrine-extensions": "^2.4",
-        "elasticsearch/elasticsearch": "^5.3"
+        "elasticsearch/elasticsearch": "^5.3",
+        "webuni/commonmark-table-extension": "^0.7.0"
     },
     "authors": [
         {
             "name": "Valentin",
-            "email": "valentin.faugeroux@biig.fr"
+            "email": "faugerouxvalentin@gmail.com"
         }
     ],
     "autoload": {

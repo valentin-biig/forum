@@ -3,6 +3,10 @@
 namespace Valouleloup\IssueBundle\Controller;
 
 use League\CommonMark\CommonMarkConverter;
+use League\CommonMark\Converter;
+use League\CommonMark\DocParser;
+use League\CommonMark\Environment;
+use League\CommonMark\HtmlRenderer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,6 +17,7 @@ use Valouleloup\IssueBundle\Entity\Theme;
 use Valouleloup\IssueBundle\Form\ElasticType;
 use Valouleloup\IssueBundle\Form\IssueType;
 use Valouleloup\IssueBundle\Form\PostType;
+use Webuni\CommonMark\TableExtension\TableExtension;
 
 class IssueController extends Controller
 {
@@ -29,13 +34,16 @@ class IssueController extends Controller
             ]
         );
 
-        $mark = new CommonMarkConverter();
+        $environment = Environment::createCommonMarkEnvironment();
+        $environment->addExtension(new TableExtension());
+
+        $converter = new Converter(new DocParser($environment), new HtmlRenderer($environment));
 
         foreach ($issue->getPosts() as $post) {
-            $post->setBody($mark->convertToHtml($post->getBody()));
+            $post->setBody($converter->convertToHtml($post->getBody()));
         }
 
-        $issue->setBody($mark->convertToHtml($issue->getBody()));
+        $issue->setBody($converter->convertToHtml($issue->getBody()));
 
         return $this->render('@ValouleloupIssue/Issue/show.html.twig', [
             'issue' => $issue,

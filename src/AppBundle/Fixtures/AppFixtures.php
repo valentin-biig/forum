@@ -71,6 +71,7 @@ class AppFixtures extends Fixture
         $issue1->setTags($tag2);
         $issue1->setTheme($theme1);
         $issue1->setAuthor($user1);
+        $issue1->setState(0);
         $issue1->setUpdatedAt(new DateTime('01-01-2018 12:00:00'));
         $manager->persist($issue1);
 
@@ -81,6 +82,7 @@ class AppFixtures extends Fixture
         $issue2->setTags($tag3);
         $issue2->setTheme($theme2);
         $issue2->setAuthor($user1);
+        $issue1->setState(1);
         $issue2->setUpdatedAt(new DateTime('01-01-2018 13:00:00'));
         $manager->persist($issue2);
 
@@ -90,6 +92,7 @@ class AppFixtures extends Fixture
         $issue3->setTags($tag1);
         $issue3->setTheme($theme2);
         $issue3->setAuthor($user1);
+        $issue1->setState(0);
         $issue3->setUpdatedAt(new DateTime('01-01-2018 14:00:00'));
         $manager->persist($issue3);
 
@@ -99,6 +102,7 @@ class AppFixtures extends Fixture
         $issue4->setTags($tag3);
         $issue4->setTheme($theme2);
         $issue4->setAuthor($user1);
+        $issue1->setState(0);
         $issue4->setUpdatedAt(new DateTime('01-01-2018 15:00:00'));
         $manager->persist($issue4);
 
@@ -109,6 +113,7 @@ class AppFixtures extends Fixture
         $issue5->setTags($tag3);
         $issue5->setTheme($theme2);
         $issue5->setAuthor($user1);
+        $issue1->setState(1);
         $issue5->setUpdatedAt(new DateTime('01-01-2018 16:00:00'));
         $manager->persist($issue5);
 
@@ -119,6 +124,7 @@ class AppFixtures extends Fixture
         $issue6->setTags($tag3);
         $issue6->setTheme($theme2);
         $issue6->setAuthor($user1);
+        $issue1->setState(0);
         $issue6->setUpdatedAt(new DateTime('01-01-2018 17:00:00'));
         $manager->persist($issue6);
 
@@ -129,6 +135,7 @@ class AppFixtures extends Fixture
         $issue7->setTags($tag2);
         $issue7->setTheme($theme2);
         $issue7->setAuthor($user1);
+        $issue1->setState(0);
         $issue7->setUpdatedAt(new DateTime('01-01-2018 18:00:00'));
         $manager->persist($issue7);
 
@@ -138,6 +145,7 @@ class AppFixtures extends Fixture
         $issue8->setTags($tag4);
         $issue8->setTheme($theme2);
         $issue8->setAuthor($user1);
+        $issue1->setState(1);
         $issue8->setUpdatedAt(new DateTime('01-01-2018 19:00:00'));
         $manager->persist($issue8);
 

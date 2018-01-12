@@ -2657,7 +2657,7 @@
             "dist": {
                 "type": "path",
                 "url": "src/Valouleloup/IssueBundle",
-                "reference": "41448e3b4f04a988a178190510cd16279a565722",
+                "reference": "5bc5eeee56724db56388a1ce4e4fcb35e912bd9c",
                 "shasum": null
             },
             "require": {
@@ -2667,7 +2667,8 @@
                 "gedmo/doctrine-extensions": "^2.4",
                 "league/commonmark": "^0.16.0",
                 "php": ">=5.6",
-                "symfony/symfony": "3.4.*"
+                "symfony/symfony": "3.4.*",
+                "webuni/commonmark-table-extension": "^0.7.0"
             },
             "type": "library",
             "autoload": {
@@ -2685,6 +2686,63 @@
             "transport-options": {
                 "symlink": true
             }
+        },
+        {
+            "name": "webuni/commonmark-table-extension",
+            "version": "0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webuni/commonmark-table-extension.git",
+                "reference": "6326245c1e198cc839ef4f6dc070cf99cffb1a84"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webuni/commonmark-table-extension/zipball/6326245c1e198cc839ef4f6dc070cf99cffb1a84",
+                "reference": "6326245c1e198cc839ef4f6dc070cf99cffb1a84",
+                "shasum": ""
+            },
+            "require": {
+                "league/commonmark": "^0.16|^0.17",
+                "php": "^5.6|^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.9",
+                "phpunit/phpunit": "^5.4|^6.0",
+                "symfony/var-dumper": "^3.0|^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.7-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webuni\\CommonMark\\TableExtension\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Hasoň",
+                    "email": "martin.hason@gmail.com"
+                },
+                {
+                    "name": "Webuni s.r.o.",
+                    "homepage": "https://www.webuni.cz"
+                }
+            ],
+            "description": "The table extension for CommonMark PHP implementation",
+            "homepage": "https://github.com/webuni/commonmark-table-extension",
+            "keywords": [
+                "commonmark",
+                "markdown",
+                "table"
+            ],
+            "time": "2018-01-09 11:11:46"
         }
     ],
     "packages-dev": [
