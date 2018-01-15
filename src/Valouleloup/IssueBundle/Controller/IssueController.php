@@ -8,6 +8,7 @@ use League\CommonMark\Environment;
 use League\CommonMark\HtmlRenderer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\EventDispatcher\GenericEvent;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Valouleloup\IssueBundle\Entity\Issue;
@@ -48,7 +49,7 @@ class IssueController extends Controller
 
         return $this->render('@ValouleloupIssue/Issue/show.html.twig', [
             'issue' => $issue,
-            'form' => $form->createView(),
+            'form'  => $form->createView(),
         ]);
     }
 
@@ -75,7 +76,7 @@ class IssueController extends Controller
 
         return $this->render('@ValouleloupIssue/Issue/show.html.twig', [
             'issue' => $issue,
-            'form' => $form->createView(),
+            'form'  => $form->createView(),
         ]);
     }
 
@@ -84,7 +85,7 @@ class IssueController extends Controller
      */
     public function listAction()
     {
-        $repo = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
+        $repo   = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
         $issues = $repo->findAllMostRecent();
 
         return $this->renderList($issues);
@@ -97,7 +98,7 @@ class IssueController extends Controller
      */
     public function listTagAction(Tag $tag)
     {
-        $repo = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
+        $repo   = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
         $issues = $repo->findByTag($tag);
 
         return $this->renderList($issues);
@@ -110,7 +111,7 @@ class IssueController extends Controller
      */
     public function listThemeAction(Theme $theme)
     {
-        $repo = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
+        $repo   = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Issue');
         $issues = $repo->findByTheme($theme);
 
         return $this->renderList($issues);
@@ -166,7 +167,7 @@ class IssueController extends Controller
 
         return $this->render('@ValouleloupIssue/Issue/list.html.twig', [
             'issues' => $issues,
-            'form' => $form->createView(),
+            'form'   => $form->createView(),
         ]);
     }
 
@@ -222,5 +223,25 @@ class IssueController extends Controller
         return $this->render('@ValouleloupIssue/Issue/add.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @param Issue $issue
+     *
+     * @return RedirectResponse
+     */
+    public function closeAction(Issue $issue)
+    {
+        $issue->setState(1);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+        $event = new GenericEvent($issue);
+        $this->get('event_dispatcher')->dispatch(ValouleloupIssueEvents::ISSUE_CLOSED, $event);
+
+        $this->addFlash('success', 'flash.issue.closed');
+
+        return $this->redirectToRoute('show_issue', ['id' => $issue->getId()]);
     }
 }

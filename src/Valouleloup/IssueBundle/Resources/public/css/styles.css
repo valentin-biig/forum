@@ -29,12 +29,17 @@ textarea{
 label{
     font-weight: 400;
 }
+h1, h2, h3, h4, h5, h6{
+    margin:0;
+}
 .label{
     font-weight:400;
 }
 .col-no-padding{
     padding:0 !important;
 }
+
+/* TOP BODY */
 .top-body{
     background:#fafbfc;
     border-bottom: 1px solid #e1e4e8;
@@ -56,6 +61,8 @@ label{
 .row{
     margin:4px 0;
 }
+
+/* NAV */
 .nav a{
     color:#555;
     outline:none;
@@ -75,6 +82,8 @@ label{
 .btn-submit{
     margin:10px 0;
 }
+
+/* SEND POST */
 .panel-heading{
     background-color: #f6f8fa !important;
 }
@@ -87,6 +96,8 @@ label{
 .send-post textarea{
     padding:10px 10px;
 }
+
+/* LIST */
 .list-posts{
     padding:0;
 }
@@ -116,6 +127,8 @@ label{
 .list-elements .glyphicon{
     top:2px
 }
+
+/* ISSUE */
 .header-issue{
     padding-bottom:20px;
 }
@@ -137,12 +150,19 @@ label{
     max-width:60px;
     border:1px solid #E0E0E0;
 }
+.issue-show-title{
+    padding:14px 0;
+}
+
+/* ELASTIC */
 .elastic-submit{
     display:none;
 }
 .elastic-search-input{
     padding:4px 10px;
 }
+
+/* MARKDOWN */
 .panel-body table{
     margin:8px 0;
 }

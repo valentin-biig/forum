@@ -70,3 +70,10 @@ create_issue:
     options:
         expose: true
     path: "/create"
+
+close_issue:
+    defaults: { _controller: "ValouleloupIssueBundle:Issue:close"}
+    methods: [GET]
+    path: "/close/{id}"
+    requirements:
+        id: \d+

@@ -13,9 +13,8 @@ use Valouleloup\IssueBundle\Entity\Theme;
 
 class AppFixtures extends Fixture
 {
-
     /**
-     * Load data fixtures with the passed EntityManager
+     * Load data fixtures with the passed EntityManager.
      *
      * @param ObjectManager $manager
      */
@@ -150,7 +149,7 @@ class AppFixtures extends Fixture
         $manager->persist($issue8);
 
         // Posts
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 0; $i < 4; ++$i) {
             $post = new Post();
             $post->setBody('## blabla
 blo blo
@@ -166,7 +165,7 @@ kmezbfm zbfozb fofezuobf ozbfou
             $manager->persist($post);
         }
 
-        for ($i = 0; $i < 6; $i++) {
+        for ($i = 0; $i < 6; ++$i) {
             $post = new Post();
             $post->setBody('## blabla
 blo blo

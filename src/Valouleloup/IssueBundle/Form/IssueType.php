@@ -21,14 +21,14 @@ class IssueType extends AbstractType
             ->add('label', TextType::class)
             ->add('body', TextareaType::class)
             ->add('theme', EntityType::class, [
-                'class' => Theme::class,
-                'choice_label' => 'label'
+                'class'        => Theme::class,
+                'choice_label' => 'label',
             ])
             ->add('tags', EntityType::class, [
-                'class' => Tag::class,
+                'class'        => Tag::class,
                 'choice_label' => 'label',
-                'multiple' => true,
-                'expanded' => true
+                'multiple'     => true,
+                'expanded'     => true,
             ])
             ->add('submit', SubmitType::class)
         ;

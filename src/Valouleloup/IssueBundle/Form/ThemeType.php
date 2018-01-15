@@ -30,5 +30,4 @@ class ThemeType extends AbstractType
     {
         return 'form_theme';
     }
-
 }

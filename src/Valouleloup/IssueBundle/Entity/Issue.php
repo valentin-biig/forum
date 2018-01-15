@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class Issue
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -34,7 +34,7 @@ class Issue
     private $tags;
 
     /**
-     * @var integer
+     * @var int
      */
     private $state;
 
@@ -64,7 +64,7 @@ class Issue
     public function __construct()
     {
         $this->posts = new ArrayCollection();
-        $this->tags = new ArrayCollection();
+        $this->tags  = new ArrayCollection();
     }
 
     /**
@@ -230,5 +230,4 @@ class Issue
     {
         $this->body = $body;
     }
-
 }

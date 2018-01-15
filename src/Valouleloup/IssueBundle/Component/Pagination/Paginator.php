@@ -19,7 +19,7 @@ class Paginator
 
     /**
      * @param Query $query
-     * @param int $limit
+     * @param int   $limit
      *
      * @return \Doctrine\ORM\Tools\Pagination\Paginator
      */

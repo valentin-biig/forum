@@ -26,7 +26,8 @@ class IssueListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            ValouleloupIssueEvents::ISSUE_OPEN => 'openIssue'
+            ValouleloupIssueEvents::ISSUE_OPEN   => 'openIssue',
+            ValouleloupIssueEvents::ISSUE_CLOSED => 'closeIssue',
         ];
     }
 
@@ -40,9 +41,25 @@ class IssueListener implements EventSubscriberInterface
         $issue = $event->getSubject();
 
         if (!$issue instanceof Issue) {
-            throw new \Exception('The subject must be instance of Issue, ' . get_class($issue) . ' given.');
+            throw new \Exception('The subject must be instance of Issue, '.get_class($issue).' given.');
         }
 
         $this->notifier->openIssue($issue);
+    }
+
+    /**
+     * @param GenericEvent $event
+     *
+     * @throws \Exception
+     */
+    public function closeIssue(GenericEvent $event)
+    {
+        $issue = $event->getSubject();
+
+        if (!$issue instanceof Issue) {
+            throw new \Exception('The subject must be instance of Issue, '.get_class($issue).' given.');
+        }
+
+        $this->notifier->closeIssue($issue);
     }
 }

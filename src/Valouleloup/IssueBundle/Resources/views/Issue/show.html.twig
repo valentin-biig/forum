@@ -7,7 +7,22 @@
 {% block body %}
     <div class="row">
         <div class="header-issue col-sm-12">
-            <h2>{{ issue.label }}</h2> <span class="label label-success">Open</span>
+            <div class="issue-show-title col-sm-12">
+                <div class="col-sm-11 col-no-padding">
+                    <h2>{{ issue.label }}</h2>
+                </div>
+                {% if app.user.id == issue.author.id and issue.state == 0 %}
+                    <div class="col-sm-1 col-no-padding">
+                        <a href="{{ path('close_issue', {id: issue.id}) }}" class="btn btn-danger">Close Issue</a>
+                    </div>
+                {% endif %}
+            </div>
+
+            {% if issue.state == 0 %}
+                <span class="label label-success">Open</span>
+            {% elseif issue.state == 1 %}
+                <span class="label label-danger">Closed</span>
+            {% endif %}
             {% for tag in issue.tags %}
                 <span class="label label-warning" style="background-color:#{{ tag.color }};">{{ tag.label }}</span>
             {% endfor %}
@@ -57,26 +72,28 @@
     {% endfor %}
     </div>
 
-    <hr>
+    {% if issue.state == 0 %}
+        <hr>
 
-    <div class="row">
-        <div class="panel panel-default send-post" id="send-post">
+        <div class="row">
+            <div class="panel panel-default send-post" id="send-post">
 
-            <div class="panel-heading">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#">Write</a></li>
-                    <li><a href="#">Preview</a></li>
-                </ul>
-            </div>
-            <div class="panel-body">
-                <div class="form">
-                    {{ form_start(form) }}
-                    {{ form_widget(form.body, {'attr': {'class': 'col-sm-12'}}) }}
-                    {{ form_widget(form.submit, {'attr': {'class': 'btn btn-success btn-submit pull-right'}, 'label' : 'Comment'}) }}
-                    {{ form_end(form) }}
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#">Write</a></li>
+                        <li><a href="#">Preview</a></li>
+                    </ul>
                 </div>
-            </div>
+                <div class="panel-body">
+                    <div class="form">
+                        {{ form_start(form) }}
+                        {{ form_widget(form.body, {'attr': {'class': 'col-sm-12'}}) }}
+                        {{ form_widget(form.submit, {'attr': {'class': 'btn btn-success btn-submit pull-right'}, 'label' : 'Comment'}) }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
 
+            </div>
         </div>
-    </div>
+    {% endif %}
 {% endblock %}

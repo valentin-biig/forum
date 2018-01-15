@@ -20,7 +20,7 @@ class MyUserType extends AbstractType
             ->add('firstName', TextType::class)
             ->add('lastName', TextType::class)
             ->add('plainPassword', RepeatedType::class, [
-                'type' => PasswordType::class,
+                'type'           => PasswordType::class,
                 'first_options'  => ['label' => 'Password'],
                 'second_options' => ['label' => 'Repeat Password'],
             ])
@@ -30,7 +30,7 @@ class MyUserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => MyUser::class
+            'data_class' => MyUser::class,
         ]);
     }
 
@@ -38,5 +38,4 @@ class MyUserType extends AbstractType
     {
         return 'user';
     }
-
 }

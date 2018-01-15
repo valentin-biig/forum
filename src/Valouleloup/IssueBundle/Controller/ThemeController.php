@@ -63,7 +63,7 @@ class ThemeController extends Controller
      */
     public function listAction()
     {
-        $repo = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Theme');
+        $repo   = $this->getDoctrine()->getRepository('ValouleloupIssueBundle:Theme');
         $themes = $repo->findAll();
 
         return $this->render('@ValouleloupIssue/Theme/list.html.twig', [

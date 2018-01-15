@@ -24,7 +24,7 @@ class ElasticPopulateCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $issueRepo = $this->getContainer()->get('doctrine')->getRepository('ValouleloupIssueBundle:Issue');
-        $issues = $issueRepo->findAll();
+        $issues    = $issueRepo->findAll();
 
         $postManager = $this->getContainer()->get('val_issue.component.elastic.post.manager');
 

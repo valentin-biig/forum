@@ -2,13 +2,12 @@
 
 namespace Valouleloup\IssueBundle\Entity;
 
-
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class Post
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 

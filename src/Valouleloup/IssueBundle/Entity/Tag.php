@@ -8,7 +8,7 @@ use Doctrine\Common\Collections\Collection;
 class Tag
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -90,5 +90,4 @@ class Tag
     {
         $this->color = $color;
     }
-
 }

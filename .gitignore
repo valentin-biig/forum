@@ -7,3 +7,4 @@ web/bundles/*
 .bash_history
 .env
 .idea/*
+.php_cs.cache

@@ -13,10 +13,10 @@ class ElasticType extends AbstractType
         $builder
             ->add('search', TextType::class, [
                 'label' => false,
-                'attr' => [
+                'attr'  => [
                     'placeholder' => 'Search',
-                    'class' => 'elastic-search-input'
-                ]
+                    'class'       => 'elastic-search-input',
+                ],
             ])
         ;
     }
@@ -25,5 +25,4 @@ class ElasticType extends AbstractType
     {
         return 'form_elastic';
     }
-
 }

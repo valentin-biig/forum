@@ -2,7 +2,6 @@
 
 namespace Valouleloup\IssueBundle\Component\Elasticsearch\Post;
 
-
 use Elasticsearch\Client;
 use Valouleloup\IssueBundle\Entity\Issue;
 use Valouleloup\IssueBundle\Entity\Post;
@@ -28,7 +27,7 @@ class PostManager
             'index' => 'posts',
             'type'  => 'issue',
             'id'    => $issue->getId(),
-            'body'  => [ 'title' => $issue->getLabel(), 'body' => $issue->getBody()]
+            'body'  => ['title' => $issue->getLabel(), 'body' => $issue->getBody()],
         ];
 
         $this->client->index($params);
@@ -43,7 +42,7 @@ class PostManager
             'index' => 'posts',
             'type'  => 'post',
             'id'    => $post->getId(),
-            'body'  => [ 'body' => $post->getBody()]
+            'body'  => ['body' => $post->getBody()],
         ];
 
         $this->client->index($params);
@@ -58,15 +57,15 @@ class PostManager
     {
         $params = [
             'scroll' => '2m',
-            'index' => 'posts',
-            'type' => 'issue',
-            'body' => [
+            'index'  => 'posts',
+            'type'   => 'issue',
+            'body'   => [
                 'query' => [
                     'wildcard' => [
-                        'title' => '*' . $terms . '*'
-                    ]
-                ]
-            ]
+                        'title' => '*'.$terms.'*',
+                    ],
+                ],
+            ],
         ];
 
         $postIds = [];
@@ -90,7 +89,7 @@ class PostManager
     public function dropIndex()
     {
         $params = [
-            'index' => 'posts'
+            'index' => 'posts',
         ];
 
         $this->client->indices()->delete($params);

@@ -27,21 +27,48 @@ class Notifier
 
     public function __construct(Router $router, $webhook)
     {
-        $this->client = ClientFactory::createClient();
-        $this->router = $router;
+        $this->client  = ClientFactory::createClient();
+        $this->router  = $router;
         $this->webhook = $webhook;
     }
 
+    /**
+     * @param Issue $issue
+     */
     public function openIssue(Issue $issue)
     {
         $tab = [
+            'username'    => 'IssueBundle',
             'attachments' => [
                 [
-                    'fallback' => 'Issue open by ' . $issue->getAuthor()->getUsername() . ' on Issue Bundle',
-                    'color' => '#8AC865', //CC4040
-                    'pretext' => 'Issue open by ' . $issue->getAuthor()->getUsername() . ' on Issue Bundle',
-                    'title' => '# ' . $issue->getId() . ' - [' . $issue->getTheme()->getLabel() .'] ' . $issue->getLabel(),
-                    'title_link' => $this->router->generate('show_issue', ['id' => $issue->getId()], UrlGeneratorInterface::ABSOLUTE_URL)
+                    'username'   => 'IssueBundle',
+                    'fallback'   => 'Issue open by '.$issue->getAuthor()->getUsername().' on Issue Bundle',
+                    'color'      => '#8AC865',
+                    'pretext'    => 'Issue open by '.$issue->getAuthor()->getUsername().' on Issue Bundle',
+                    'title'      => '# '.$issue->getId().' - ['.$issue->getTheme()->getLabel().'] '.$issue->getLabel(),
+                    'title_link' => $this->router->generate('show_issue', ['id' => $issue->getId()], UrlGeneratorInterface::ABSOLUTE_URL),
+                ],
+            ],
+        ];
+
+        $this->client->request('POST', $this->webhook, [RequestOptions::JSON => $tab]);
+    }
+
+    /**
+     * @param Issue $issue
+     */
+    public function closeIssue(Issue $issue)
+    {
+        $tab = [
+            'username'    => 'IssueBundle',
+            'attachments' => [
+                [
+                    'username'   => 'IssueBundle',
+                    'fallback'   => 'Issue closed on Issue Bundle',
+                    'color'      => '#CC4040',
+                    'pretext'    => 'Issue closed on Issue Bundle',
+                    'title'      => '# '.$issue->getId().' - ['.$issue->getTheme()->getLabel().'] '.$issue->getLabel(),
+                    'title_link' => $this->router->generate('show_issue', ['id' => $issue->getId()], UrlGeneratorInterface::ABSOLUTE_URL),
                 ],
             ],
         ];
