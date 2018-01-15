@@ -1,3 +1,6 @@
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
 valouleloup_issue:
     resource: "@ValouleloupIssueBundle/Resources/config/routing.yml"
     prefix:   /issue-bundle
@@ -5,11 +8,3 @@ valouleloup_issue:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
-
-login:
-    defaults: { _controller: "AppBundle:Security:login" }
-    path: "/login"
-
-register:
-    defaults: { _controller: "AppBundle:Security:register" }
-    path: "/register"

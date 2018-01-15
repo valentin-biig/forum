@@ -2,21 +2,20 @@
 # https://symfony.com/doc/current/security.html
 security:
     encoders:
-        AppBundle\Entity\MyUser:
+        FOS\UserBundle\Model\UserInterface:
             algorithm: bcrypt
 
     providers:
-        my_user:
-            entity:
-                class: AppBundle\Entity\MyUser
-                property: email
+        fos_userbundle:
+            id: fos_user.user_provider.username
 
     firewalls:
         main:
             anonymous: true
             form_login:
-                login_path: login
-                check_path: login
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+            logout: true
 
     access_control:
         - { path: ^/(login|register), role: IS_AUTHENTICATED_ANONYMOUSLY }

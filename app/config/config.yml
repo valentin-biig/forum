@@ -10,7 +10,7 @@ parameters:
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: ~
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -74,3 +74,13 @@ valouleloup_issue:
     elastic:
         hostname: 'elasticsearch'
         port: 9200
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: AppBundle\Entity\MyUser
+    service:
+        mailer: fos_user.mailer.twig_swift
+    from_email:
+        address: 'valentin.faugeroux@biig.fr'
+        sender_name: 'valentin.faugeroux@biig.fr'

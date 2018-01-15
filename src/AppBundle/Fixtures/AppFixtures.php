@@ -23,9 +23,9 @@ class AppFixtures extends Fixture
         // Users
         $user1 = new MyUser();
         $user1->setEmail('toto@gmail.com');
-        $user1->setFirstName('toto');
-        $user1->setLastName('toto');
-        $user1->setPassword('$2y$13$S4OvTZOwgOFCG/uKiA99CeN9Zx165idsqFqyAxvVeaz3hEuw4G.e6');
+        $user1->setUsername('toto');
+        $user1->setEnabled(true);
+        $user1->setPassword('$2y$13$/oNAk5lh1UkvvZJwfy0o/.1E/RAOG6HBUqDD0ADqxkQiPlEwJYlSS');
         $manager->persist($user1);
 
         // Themes
