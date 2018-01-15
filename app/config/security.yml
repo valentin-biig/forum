@@ -16,6 +16,15 @@ security:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
             logout: true
+            oauth:
+                resource_owners:
+                    gitlab: "/login/check-gitlab"
+                login_path:   /login
+                failure_path: /login
+                use_forward:  false
+
+                oauth_user_provider:
+                    service: app.security.provider.gitlab
 
     access_control:
         - { path: ^/(login|register), role: IS_AUTHENTICATED_ANONYMOUSLY }

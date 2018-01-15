@@ -17,3 +17,7 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
+
+    gitlab_client_id: 'yourId'
+    gitlab_client_secret: 'yourSecret'
+    gitlab_domain: 'http://gitlab-domain.fr'

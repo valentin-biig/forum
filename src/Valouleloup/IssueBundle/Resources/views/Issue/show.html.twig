@@ -30,7 +30,11 @@
 
         <div class="single-post col-sm-12 col-no-padding">
             <div class="col-sm-1 post-left">
-                <img src="{{ asset('ident02.png') }}">
+                {% if issue.author.gitlabAvatar is not null %}
+                    <img src="{{ issue.author.gitlabAvatar }}">
+                {% else %}
+                    <img src="{{ asset('ident02.png') }}">
+                {% endif %}
             </div>
 
             <div class="panel panel-default col-sm-11 list-posts">
@@ -52,7 +56,11 @@
     {% for post in issue.posts %}
         <div class="single-post col-sm-12 col-no-padding">
             <div class="col-sm-1 post-left">
-                <img src="{{ asset('ident02.png') }}">
+                {% if post.author.gitlabAvatar is not null %}
+                    <img src="{{ post.author.gitlabAvatar }}">
+                {% else %}
+                    <img src="{{ asset('ident02.png') }}">
+                {% endif %}
             </div>
 
             <div class="panel panel-default col-sm-11 col-no-padding">

@@ -84,3 +84,21 @@ fos_user:
     from_email:
         address: 'valentin.faugeroux@biig.fr'
         sender_name: 'valentin.faugeroux@biig.fr'
+
+
+hwi_oauth:
+    connect:
+        account_connector: app.security.provider.gitlab
+    firewall_names: [main]
+    resource_owners:
+        gitlab:
+            type:               gitlab
+            client_id:          '%gitlab_client_id%'
+            client_secret:      '%gitlab_client_secret%'
+            access_token_url:   https://gitlab.biig.fr/oauth/token
+            authorization_url:  https://gitlab.biig.fr/oauth/authorize
+            infos_url:          https://gitlab.biig.fr/api/v4/user
+    fosub:
+        username_iterations: 30
+        properties:
+            gitlab: gitlabId
