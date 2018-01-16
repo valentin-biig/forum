@@ -7,7 +7,9 @@ The goal of this library is to test the bundle [**valouleloup/issue-bundle**][90
  
  * Docker (nginx, php-fpm, mysql, phpmyadmin, elasticsearch)
  * Symfony 3.4
- * Valouleloup/IssueBundle
+ * Valouleloup IssueBundle
+ * FOS User Bundle
+ * HWI OAuthBundle (Gitlab connect)
 
 ## Install
  
@@ -37,21 +39,16 @@ The goal of this library is to test the bundle [**valouleloup/issue-bundle**][90
  
 #### Issue bundle endpoint
  
- First, register one user here :
- 
- [http://localhost:8091/register][92]
- 
- Then login :
+ Login to the application with your gitlab account :
  
  [http://localhost:8091/login][93]
  
- And go to the main page :
+ If you are not redirected automatically, go to :
  
  [http://localhost:8091/issue-bundle/themes/][91]
  
 
 [90]: https://github.com/Valouleloup/IssueBundle
 [91]: http://localhost:8091/issue-bundle/themes/
-[92]: http://localhost:8091/register
 [93]: http://localhost:8091/login
 

@@ -6,9 +6,9 @@ hwi_oauth_connect:
     resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
     prefix:   /login
 
-hwi_oauth_login:
-    resource: "@HWIOAuthBundle/Resources/config/routing/login.xml"
-    prefix:   /login
+app_login:
+    path: /login
+    defaults: { _controller: 'AppBundle:Default:login' }
 
 gitlab_login:
     path: /login/check-gitlab

@@ -20,7 +20,12 @@
                     Valouleloup Issue Bundle
                 </div>
                 <div class="col-sm-6 col-no-padding text-right">
-                    <span class="glyphicon glyphicon-user"></span> <a href="">{{ app.user.username }}</a>
+                    {% if app.user.gitlabAvatar is not null %}
+                        <img src="{{ app.user.gitlabAvatar }}" alt="avatar" class="header-avatar"/>
+                    {% else %}
+                        <span class="glyphicon glyphicon-user"></span>
+                    {% endif %}
+                    <a href="">{{ app.user.username }}</a>
                 </div>
             </div>
         </header>

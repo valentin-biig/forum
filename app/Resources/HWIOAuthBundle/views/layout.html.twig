@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container text-center home-container">
+        <h1>Valouleloup Issue Bundle</h1>
+        <h2>You are about to experience the issue bundle system, post your questions, share your knowledge, learn...</h2>
+
+        {% block hwi_oauth_content %}
+            {% if error is defined and error %}
+                <span>{{ error }}</span>
+            {% endif %}
+            {% for owner in hwi_oauth_resource_owners() %}
+                <a href="{{ hwi_oauth_login_url(owner) }}" class="connect-gitlab btn">
+                    Se connecter avec <span><img src="{{ asset('gitlab-logo2.png') }}">Gitlab</span>
+                </a>
+            {% endfor %}
+        {% endblock %}
+    </div>
+{% endblock %}

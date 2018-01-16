@@ -13,9 +13,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        return $this->redirectToRoute('list_themes');
+    }
+
+    public function loginAction()
+    {
+        return $this->render('@HWIOAuth/layout.html.twig');
     }
 }

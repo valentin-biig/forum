@@ -1,0 +1,45 @@
+h1, h2{
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 300;
+    margin:40px auto;
+    color:#444;
+}
+
+h2{
+    color:#777;
+}
+
+.home-container{
+    padding-top:100px;
+}
+
+.connect-gitlab{
+    background-color: #6a4ebb;
+    color:white;
+}
+
+.connect-gitlab:focus{
+    background-color: #574da7;
+    color:white;
+}
+
+.connect-gitlab:active{
+    background-color: #5d4dad;
+    color:white;
+}
+
+.connect-gitlab:hover{
+    background-color: #534ea4;
+    color:white;
+}
+
+.connect-gitlab span{
+    font-size:18px;
+}
+
+.connect-gitlab span img{
+width:30px;
+height:30px;
+margin-right:6px;
+}
+
