@@ -2,6 +2,7 @@
 
 namespace Valouleloup\IssueBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class Post
@@ -25,6 +26,11 @@ class Post
      * @var UserInterface
      */
     private $author;
+
+    /**
+     * @var Collection
+     */
+    private $votes;
 
     /**
      * @var \DateTime
@@ -122,5 +128,21 @@ class Post
     public function setUpdatedAt($updatedAt)
     {
         $this->updatedAt = $updatedAt;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getVotes()
+    {
+        return $this->votes;
+    }
+
+    /**
+     * @param UserInterface $user
+     */
+    public function setVotes($user)
+    {
+        $this->votes->add($user);
     }
 }

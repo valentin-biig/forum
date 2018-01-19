@@ -100,4 +100,23 @@ class PostController extends Controller
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * @param Post $post
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function addVoteAction(Post $post)
+    {
+        $votes = $post->getVotes();
+
+        if (!$votes->contains($this->getUser())) {
+            $post->setVotes($this->getUser());
+
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+        }
+
+        return $this->redirectToRoute('show_issue', ['id' => $post->getIssue()->getId()]);
+    }
 }

@@ -70,10 +70,10 @@ swiftmailer:
 
 valouleloup_issue:
     mattermost:
-        webhook: 'https://mattermost.biig.fr/hooks/hj7jq571yjygdqakyfuwy5koir'
+        webhook: '%env(MATTERMOST_WEBHOOK)%'
     elastic:
-        hostname: 'elasticsearch'
-        port: 9200
+        hostname: '%elastic_host%'
+        port: '%elastic_port%'
 
 fos_user:
     db_driver: orm
@@ -82,8 +82,8 @@ fos_user:
     service:
         mailer: fos_user.mailer.twig_swift
     from_email:
-        address: 'valentin.faugeroux@biig.fr'
-        sender_name: 'valentin.faugeroux@biig.fr'
+        address: 'my-email@gmail.com'
+        sender_name: 'my-email@gmail.com'
 
 
 hwi_oauth:
@@ -95,9 +95,9 @@ hwi_oauth:
             type:               gitlab
             client_id:          '%gitlab_client_id%'
             client_secret:      '%gitlab_client_secret%'
-            access_token_url:   https://gitlab.biig.fr/oauth/token
-            authorization_url:  https://gitlab.biig.fr/oauth/authorize
-            infos_url:          https://gitlab.biig.fr/api/v4/user
+            access_token_url:   '%gitlab_domain%/oauth/token'
+            authorization_url:  '%gitlab_domain%/oauth/authorize'
+            infos_url:          '%gitlab_domain%/api/v4/user'
     fosub:
         username_iterations: 30
         properties:

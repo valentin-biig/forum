@@ -27,3 +27,7 @@ Valouleloup\IssueBundle\Entity\Post:
         author:
             targetEntity: Symfony\Component\Security\Core\User\UserInterface
             cascade: ["persist"]
+
+    manyToMany:
+        votes:
+          targetEntity: Symfony\Component\Security\Core\User\UserInterface

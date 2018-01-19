@@ -25,3 +25,8 @@ update_post:
     options:
         expose: true
     path: "/{id}/update"
+
+add_vote:
+    defaults: { _controller: "ValouleloupIssueBundle:Post:addVote" }
+    methods: [GET]
+    path: "/{id}/vote"

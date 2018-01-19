@@ -21,3 +21,6 @@ parameters:
     gitlab_client_id: 'yourId'
     gitlab_client_secret: 'yourSecret'
     gitlab_domain: 'http://gitlab-domain.fr'
+
+    elastic_host: 'elasticsearch'
+    elastic_port: 9200

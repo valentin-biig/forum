@@ -55,12 +55,22 @@
     <div class="row">
     {% for post in issue.posts %}
         <div class="single-post col-sm-12 col-no-padding">
-            <div class="col-sm-1 post-left">
-                {% if post.author.gitlabAvatar is not null %}
-                    <img src="{{ post.author.gitlabAvatar }}">
-                {% else %}
-                    <img src="{{ asset('ident02.png') }}">
-                {% endif %}
+            <div class="col-sm-1 col-no-padding post-left">
+                <div class="col-sm-12">
+                    {% if post.author.gitlabAvatar is not null %}
+                        <img src="{{ post.author.gitlabAvatar }}">
+                    {% else %}
+                        <img src="{{ asset('ident02.png') }}">
+                    {% endif %}
+                </div>
+
+                <div class="col-sm-12 vote-area text-center">
+                    <a href="{{ path('add_vote', {'id': post.id}) }}">
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                    </a>
+
+                    <p>{{ post.votes|length }}</p>
+                </div>
             </div>
 
             <div class="panel panel-default col-sm-11 col-no-padding">
@@ -72,7 +82,7 @@
                     {% endif %}
                 </div>
                 <div class="panel-body">
-                    <p>{{ post.body | raw }}</p>
+                    <p>{{ post.body|striptags('<p><pre><code><table><h2><blockquote><table><tbody><thead><tr><td><th><ul><li>')|raw }}</p>
                 </div>
 
             </div>

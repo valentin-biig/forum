@@ -104,6 +104,19 @@ h1, h2, h3, h4, h5, h6{
     padding:10px 10px;
 }
 
+/* VOTE */
+.vote-area{
+    padding-top:10px;
+}
+.vote-area span{
+    font-size:32px;
+    color: #bbb;
+}
+.vote-area p{
+    margin-right:4px;
+    color: #444;
+}
+
 /* LIST */
 .list-posts{
     padding:0;
