@@ -43,7 +43,19 @@ h1, h2, h3, h4, h5, h6{
 .header-avatar{
     width:20px;
     height:20px;
-    margin-right:6px;
+}
+
+.header-votes{
+    display:inline-block;
+    padding: 0 6px;
+    border-right:1px solid #555;
+    border-left:1px solid #555;
+    color: #337ab7;
+    margin:0 6px;
+}
+
+.header-votes span{
+    font-size:12px;
 }
 
 /* TOP BODY */

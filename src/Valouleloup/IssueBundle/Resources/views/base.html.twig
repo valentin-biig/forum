@@ -25,6 +25,9 @@
                     {% else %}
                         <span class="glyphicon glyphicon-user"></span>
                     {% endif %}
+                    <div class="header-votes">
+                        <span class="glyphicon glyphicon-chevron-up"></span>{{ votes.nbVotes }}
+                    </div>
                     <a href="">{{ app.user.username }}</a>
                 </div>
             </div>

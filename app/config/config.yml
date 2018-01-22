@@ -35,6 +35,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        votes: '@val_issue.component.vote.vote_service'
 
 # Doctrine Configuration
 doctrine:

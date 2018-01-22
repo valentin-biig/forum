@@ -39,3 +39,14 @@ services:
             - '@val_issue.component.mattermost.notifier'
         tags:
             - { name: kernel.event_subscriber }
+
+    val_issue.repository.vote_repository:
+        class: Valouleloup\IssueBundle\Repository\VoteRepository
+        arguments:
+            - '@doctrine.dbal.default_connection'
+
+    val_issue.component.vote.vote_service:
+        class: Valouleloup\IssueBundle\Component\Vote\VoteService
+        arguments:
+            - '@security.token_storage'
+            - '@val_issue.repository.vote_repository'
